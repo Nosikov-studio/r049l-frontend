@@ -4,6 +4,7 @@ const video = document.getElementById('video');
 
 const toggleAudioBtn = document.getElementById('toggleAudio');
 const toggleVideoBtn = document.getElementById('toggleVideo');
+const stopBtn =document.getElementById('stopStream');
 
 let stream;
 
@@ -35,4 +36,23 @@ toggleVideoBtn.addEventListener('click', ()=> {
   videoTrack.enabled = !videoTrack.enabled // инвертируем свойство
   toggleVideoBtn.textContent = videoTrack.enabled ? 'Видео вкл' : 'Видео выкл';
   toggleVideoBtn.classList.toggle('non-active');
+})
+
+
+stopBtn.addEventListener('click', ()=> {
+  if(!stream) { // гарантируем, что мы не будем обращаться к несуществующему потоку. Защита от ошибок.
+    return;
+  }
+
+  stream.getTracks().forEach((track) => {
+    track.stop(); // полная остановка всех дорожек
+  });
+
+  video.srcObject = null; // Удаляю отображение с экрана (визуально завершает трансляцию)
+
+  toggleAudioBtn.disabled = true;
+  toggleVideoBtn.disabled = true;
+  stopBtn.disabled = true;
+
+  stopBtn.textContent ='Трансляция остановлена';
 })
