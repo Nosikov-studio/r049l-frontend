@@ -33,6 +33,6 @@ toggleAudioBtn.addEventListener('click', ()=> {
 toggleVideoBtn.addEventListener('click', ()=> {
   const [videoTrack] = stream.getVideoTracks(); // получаем первый видеотрек из потока
   videoTrack.enabled = !videoTrack.enabled // инвертируем свойство
-  toggleVideoBtn.textContent = videoTrack.enabled ? 'Микрофон вкл' : 'Микрофон выкл';
+  toggleVideoBtn.textContent = videoTrack.enabled ? 'Видео вкл' : 'Видео выкл';
   toggleVideoBtn.classList.toggle('non-active');
 })
