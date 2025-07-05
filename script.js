@@ -11,7 +11,21 @@
 
 ////////////2) Список доступных устройств ///////////////////////
 
+// async function getDevices() {
+//   const devices = await navigator.mediaDevices.enumerateDevices();
+//     devices.forEach(device => {
+//       console.log(device.kind, device.label, device.deviceId);
+//     });
+  
+// }
+
+// getDevices();
+
+////////3) Сумма двух предыдуших пунктов
+
+
 async function getDevices() {
+  await navigator.mediaDevices.getUserMedia({video:true, audio: true})
   const devices = await navigator.mediaDevices.enumerateDevices();
     devices.forEach(device => {
       console.log(device.kind, device.label, device.deviceId);
