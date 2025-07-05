@@ -60,15 +60,15 @@
 //////////////////6) отключение звука //////////
 
 
-navigator.mediaDevices.getUserMedia({audio:true})
-.then(stream => {
-  const [audioTrack] = stream.getAudioTracks();
-  audioTrack.enabled= false;
-  console.log('Микрофон выключен');
-})
-.catch(error => {
-    console.error('ошибка доступа к микрофону', error);
-  });
+// navigator.mediaDevices.getUserMedia({audio:true})
+// .then(stream => {
+//   const [audioTrack] = stream.getAudioTracks();
+//   audioTrack.enabled= false;
+//   console.log('Микрофон выключен');
+// })
+// .catch(error => {
+//     console.error('ошибка доступа к микрофону', error);
+//   });
 
   ////////////////7) вывод аудио на устройство /////////
 
