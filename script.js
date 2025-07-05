@@ -24,13 +24,19 @@
 ////////3) Сумма двух предыдуших пунктов
 
 
-async function getDevices() {
-  await navigator.mediaDevices.getUserMedia({video:true, audio: true});
-  const devices = await navigator.mediaDevices.enumerateDevices();
-    devices.forEach(device => {
-      console.log(device.kind, device.label, device.deviceId);
-    });
+// async function getDevices() {
+//   await navigator.mediaDevices.getUserMedia({video:true, audio: true});
+//   const devices = await navigator.mediaDevices.enumerateDevices();
+//     devices.forEach(device => {
+//       console.log(device.kind, device.label, device.deviceId);
+//     });
   
-}
+// }
 
-getDevices();
+// getDevices();
+
+/////////////////4) Новое изменения в устройствах
+
+navigator.mediaDevices.addEventListener('devicechange', ()=> {
+  console.log("Device changed");
+})
