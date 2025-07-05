@@ -43,17 +43,29 @@
 
 /////////////5) Работа с трэками //////////////////////
 
-navigator.mediaDevices.getUserMedia({video:true})
-.then(stream => {
-  const [videoTrack] = stream.getVideoTracks();
-  return videoTrack.applyConstraints({
-    width: 1280,
-    height: 720
-  }).then(()=> { 
-    console.log('Разрешение применено');
-  })
-  .catch(error => {
-    console.error('ошибка доступа к устройству', error);
-  });
-});
+// navigator.mediaDevices.getUserMedia({video:true})
+// .then(stream => {
+//   const [videoTrack] = stream.getVideoTracks();
+//   return videoTrack.applyConstraints({
+//     width: 1280,
+//     height: 720
+//   }).then(()=> { 
+//     console.log('Разрешение применено');
+//   })
+//   .catch(error => {
+//     console.error('ошибка доступа к устройству', error);
+//   });
+// });
 
+//////////////////6) отключение звука //////////
+
+
+navigator.mediaDevices.getUserMedia({audio:true})
+.then(stream => {
+  const [audioTrack] = stream.getAudioTracks();
+  audioTrack.enabled= false;
+  console.log('Микрофон выключен');
+})
+.catch(error => {
+    console.error('ошибка доступа к микрофону', error);
+  });
