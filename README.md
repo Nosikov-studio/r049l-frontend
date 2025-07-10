@@ -5,4 +5,4 @@ https://www.youtube.com/watch?v=u6CT_fbFBdQ
 
 В файле t_script.js - элементы теории (нужны манипуляции, чтобы запустить), в файле script.js  - практика 1 (работает без манипуляций).
 
-Здесь используется truryky.ry
+Здесь используется https://truryky.ru
